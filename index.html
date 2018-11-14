@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ToDoList</title>
+        <script src = "index.js"></script>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="wrapper">
+
+            <template id="templateOfTask">
+                <task>
+                    <div class="task-name" contentEditable="true" data-text="Название задачи"></div>
+                    <div class="task-description" contentEditable="true" data-text="Описание задачи"></div>
+                    <div class="task-options">
+                        <span class="task-delete" onclick="deleteTask(event)">Удалить</span>
+                        <span class="task-move">
+                            <span>Переместить ↓</span>
+                            <ul class="task-move-drop">
+                                <li onClick="relocate(event)">In Process</li>
+                                <li onClick="relocate(event)">Done</li>
+                            </ul>
+                        </span>
+                    </div>
+                </task>
+            </template>
+
+            <div class="column to-do">
+                <div class="name">
+                    <span class="name-common">To Do</span>
+                    <span class="name-sort" onclick = "sort('to-do')">sort (A-я)</span>
+                </div>
+                <div class="add-task">
+                    <span class="add-task-text" onclick = "addTask('to-do')" >Добавить задачу</span>
+                </div>
+                <div class="board"></div>
+            </div>
+
+            <div class="column in-process">
+                <div class="name">
+                    <span class="name-common">In Process</span>
+                    <span class="name-sort" onClick = "sort('in-process')">sort (A-я)</span>
+                </div>
+                <div class="add-task">
+                    <span class="add-task-text" onclick = "addTask('in-process')">Добавить задачу</span>
+                </div>
+                <div class="board">
+                </div>
+            </div>
+
+            <div class="column done">
+                <div class="name">Done</div>
+                <div class="add-task">
+                    <span class="add-task-text" onclick = "addTask('done')">Добавить задачу</span>
+                </div>
+                <div class="board"></div>
+            </div>
+        </div>
+    </body>
+</html>
